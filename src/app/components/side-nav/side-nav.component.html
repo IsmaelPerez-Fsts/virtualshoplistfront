@@ -1,9 +1,7 @@
 <div class="mx-auto">
   <ul class="list-group">
     <li *ngFor="let shoplist of shop_list_array" class="list-group-item">
-      <a
-        [routerLink]="[{ outlets: { shop_list_detail_outlet: [shoplist.id] } }]"
-      >
+      <a [routerLink]="[shoplist.id]">
         {{ shoplist.name }}
       </a>
       <button

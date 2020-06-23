@@ -28,7 +28,6 @@ export class ShopListDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      console.log(params);
       this.listid = params['shoplistid'];
       this.producToAdd.listid = this.listid;
       this.loadShopList();

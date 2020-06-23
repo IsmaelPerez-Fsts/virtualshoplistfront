@@ -8,7 +8,6 @@ const routes: Routes = [
   {
     path: ':shoplistid',
     component: ShopListDetailComponent,
-    outlet: 'shop_list_detail_outlet',
   },
   // { path: '**', pathMatch: 'full', redirectTo: '' },
 ];
