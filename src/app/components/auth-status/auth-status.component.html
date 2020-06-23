@@ -1,0 +1,54 @@
+<button (click)="logIn()">Inicar sesion</button>
+
+<!-- Modal -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Iniciar sesion</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #loginForm="ngForm">
+      <div class="form-group">
+        <label for="username">Usuario</label>
+        <div class="input-group">
+          <input
+            [(ngModel)]="loginModel.username"
+            name="username"
+            class="form-control"
+            placeholder="Tu nombre de usuario"
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <div class="input-group">
+          <input
+            [(ngModel)]="loginModel.password"
+            class="form-control"
+            placeholder="************"
+            name="password"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Iniciar sesion
+    </button>
+  </div>
+</ng-template>
+
+<!-- Fin de modal -->

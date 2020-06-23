@@ -1,0 +1,35 @@
+<div class="mx-auto">
+  <ul class="list-group">
+    <li *ngFor="let shoplist of shop_list_array" class="list-group-item">
+      <a
+        [routerLink]="[{ outlets: { shop_list_detail_outlet: [shoplist.id] } }]"
+      >
+        {{ shoplist.name }}
+      </a>
+      <button
+        class="btn btn-danger"
+        [swal]="['?', 'Eliminar ' + shoplist.name, 'warning']"
+        (confirm)="delete(shoplist.id)"
+      >
+        Eliminar
+      </button>
+    </li>
+    <li
+      class="list-group-item"
+      (click)="this.toggleAddShopListState()"
+      #inputButton
+      *ngIf="!addShopListState"
+    >
+      Añadir
+    </li>
+    <li class="list-group-item" #inputWrapper *ngIf="addShopListState">
+      <input
+        type="text"
+        #shopListInput
+        (keyup.enter)="createNewList()"
+        (keyup.esc)="toggleAddShopListState()"
+        [(ngModel)]="listName"
+      />
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,67 @@
+<div *ngIf="shoplist">
+  <!-- productTable -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Producto</th>
+        <th scope="col">cantidad</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of shoplist.products">
+        <td>{{ product.name }}</td>
+        <td>{{ product.amount }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="deleteProduct(product.id)"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td><input [(ngModel)]="producToAdd.name" /></td>
+        <td><input [(ngModel)]="producToAdd.amount" /></td>
+        <td>
+          <button type="button" class="btn btn-light" (click)="addproduct()">
+            Añadir producto
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- members table -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Usuario</th>
+        <th scope="col">Eliminar de la lista</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let member of shoplist.members">
+        <td>{{ member.username }}</td>
+        <td>
+          <button
+            class="btn btn-danger"
+            [swal]="['Seguro', 'Eliminar a ' + member.username, 'warning']"
+            (confirm)="deleteMember(member.id)"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td><input [(ngModel)]="usernameToInvite" /></td>
+        <td>
+          <button type="button" class="btn btn-light" (click)="invite()">
+            Invitar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
